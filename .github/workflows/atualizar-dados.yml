@@ -1,0 +1,59 @@
+name: Atualizar dados do Corinthians
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atualizar-dados
+  cancel-in-progress: false
+
+jobs:
+  coleta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependências da coleta
+        run: python -m pip install pandas requests
+
+      - name: Executar a coleta
+        env:
+          FSAPI_KEY: ${{ secrets.FSAPI_KEY }}
+          SERIE_A_ID: ${{ vars.SERIE_A_ID }}
+          CORINTHIANS_ID: ${{ vars.CORINTHIANS_ID }}
+          TEMPORADA: ${{ vars.TEMPORADA || '2026' }}
+        run: python coleta_detalhada.py
+
+      - name: Conferir se a base tem jogos
+        run: |
+          linhas=$(($(wc -l < corinthians_serie_a_2026_todos_jogos.csv) - 1))
+          echo "Jogos na base: $linhas"
+          if [ "$linhas" -lt 1 ]; then
+            echo "::error::A coleta não retornou jogos. Verifique a chave e os IDs."
+            exit 1
+          fi
+
+      - name: Publicar a base atualizada
+        run: |
+          if git diff --quiet -- corinthians_serie_a_2026_todos_jogos.csv; then
+            echo "Nenhum jogo novo. Nada a publicar."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add corinthians_serie_a_2026_todos_jogos.csv
+          git commit -m "Atualiza jogos do Corinthians ($(date -u +'%Y-%m-%d'))"
+          git push 
