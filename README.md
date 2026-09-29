@@ -141,9 +141,9 @@ python coleta_detalhada.py
 
 Os IDs precisam ser consultados na documentação ou no painel da API. A chave não deve ser gravada no código nem enviada ao GitHub.
 
-## Escudo
+   ## Escudo
 
-O arquivo `corinthians-logo.svg` é uma marca neutra provisória. O escudo do Corinthians é marca registrada do clube; se você tiver autorização para usá-lo, basta substituir esse arquivo mantendo o mesmo nome.
+   O escudo do Sport Club Corinthians Paulista é marca registrada do clube e é usado aqui apenas para identificação, em projeto pessoal e sem fins comerciais.
 
 ---
 
