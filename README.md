@@ -147,4 +147,4 @@ O arquivo `corinthians-logo.svg` é uma marca neutra provisória. O escudo do Co
 
 ---
 
-Projeto adaptado de [analise_nautico](https://github.com/pablohmelo02/analise_nautico), de Pablo Melo.
+Desenvolvido por [Edson Sena](https://github.com/edsonsena15-lab).
