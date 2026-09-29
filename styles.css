@@ -420,5 +420,5 @@ footer { display: none; }
 /* Aviso de dados de demonstração */
 .demo-banner { margin: 18px 0 0; padding: 12px 16px; border-radius: var(--radius-sm); background: #fff6db; border: 1px solid #ecd18a; color: #6b4e0d; font-size: 12px; line-height: 1.5; }
 .demo-banner b { color: #4a3505; }
-.brand-mark { background: #111; }
+.brand-mark { background: #fff; }
 .brand-mark img { transform: none; }
