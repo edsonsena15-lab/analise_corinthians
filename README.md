@@ -27,17 +27,29 @@ Além dos indicadores tradicionais, o projeto apresenta projeções para as roda
 
 ## Panorama analisado
 
-Preencha esta seção depois da primeira coleta com dados reais:
-
 | Indicador | Resultado |
 |---|---:|
-| Jogos disputados | — |
-| Pontos conquistados | — |
-| Campanha | — vitórias, — empates e — derrotas |
-| Aproveitamento | —% |
-| Média de pontos | — por jogo |
-| Gols | — marcados e — sofridos |
-| Saldo de gols | — |
+| Jogos disputados | 28 |
+| Pontos conquistados | 32 |
+| Campanha | 8 vitórias, 8 empates e 12 derrotas |
+| Aproveitamento | 38,1% |
+| Média de pontos | 1,14 por jogo |
+| Gols | 29 marcados e 32 sofridos |
+| Saldo de gols | −3 |
+
+Os dados representam o recorte disponível até 20 de setembro de 2026.
+
+## Principais insights
+
+- **Momento crítico:** o Corinthians vem de **6 derrotas consecutivas** (rodadas 23 a 28) e somou **0 de 15 pontos** nos últimos 5 jogos. A pontuação está parada em 32 desde a rodada 22.
+- **Campanha oscilante:** o aproveitamento foi de **33,3%** nas rodadas 1–10, subiu para **60,0%** nas rodadas 11–20 (5V 3E 2D) e despencou para **16,7%** nas rodadas 21–28 (1V 1E 6D).
+- **Mando de campo pouco decisivo:** o rendimento é de **40,0% em casa** e **35,9% fora**, uma diferença de apenas 4,1 pontos percentuais. O saldo é negativo nos dois cenários (−1 em casa e −2 fora), e **56,3% dos pontos** vieram como mandante.
+- **Primeiro tempo como ponto fraco:** o time perde o 1º tempo por **13 a 20** (saldo −7) e vence o 2º por **16 a 12** (saldo +4). Em 6 jogos terminou melhor do que estava no intervalo e em 3 terminou pior, um ganho líquido de **+8 pontos** após o intervalo.
+- **Defesa como ativo:** foram **10 jogos sem sofrer gol** em 28 (35,7%). O ataque, com 29 gols (1,04 por jogo), é o que limita a campanha.
+- **Sequências:** a maior série invicta foi de **6 jogos** e a maior sequência de vitórias, de **3**.
+- **Ritmo abaixo do esperado:** são **10 pontos abaixo** do ritmo de 50% de aproveitamento (42 pontos). Mantida a média de 1,14 ponto por jogo, a projeção é terminar com cerca de **43 pontos**.
+- **Cenários:** o modelo concentra 80% dos resultados entre **38 e 49 pontos**, com **60,8% de chance de terminar com 44 pontos ou menos**, a faixa de risco de rebaixamento. A chance de vaga na Libertadores é inferior a 0,1%, e o título já é matematicamente inalcançável pela referência de 75 pontos.
+- **Reta final exigente:** para sair da faixa de risco, o time precisa de **13 dos 30 pontos** restantes. Dos 10 jogos, **6 são fora de casa** (Internacional, Palmeiras, Vasco, São Paulo, Atlético Mineiro e Remo) e 4 na Neo Química Arena (Vitória, Mirassol, Botafogo e Grêmio).
 
 ## O que a dashboard entrega
 
