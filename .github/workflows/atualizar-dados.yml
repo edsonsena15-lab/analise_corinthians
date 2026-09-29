@@ -27,22 +27,20 @@ jobs:
           python-version: "3.12"
 
       - name: Instalar dependências da coleta
-        run: python -m pip install pandas requests
+        run: python -m pip install requests
 
-      - name: Executar a coleta
+      - name: Executar a coleta (football-data.org)
         env:
-          FSAPI_KEY: ${{ secrets.FSAPI_KEY }}
-          SERIE_A_ID: ${{ vars.SERIE_A_ID }}
-          CORINTHIANS_ID: ${{ vars.CORINTHIANS_ID }}
+          FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
           TEMPORADA: ${{ vars.TEMPORADA || '2026' }}
-        run: python coleta_detalhada.py
+        run: python coleta_football_data.py
 
       - name: Conferir se a base tem jogos
         run: |
           linhas=$(($(wc -l < corinthians_serie_a_2026_todos_jogos.csv) - 1))
           echo "Jogos na base: $linhas"
           if [ "$linhas" -lt 1 ]; then
-            echo "::error::A coleta não retornou jogos. Verifique a chave e os IDs."
+            echo "::error::A coleta não retornou jogos. Verifique a chave."
             exit 1
           fi
 
@@ -56,4 +54,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add corinthians_serie_a_2026_todos_jogos.csv
           git commit -m "Atualiza jogos do Corinthians ($(date -u +'%Y-%m-%d'))"
-          git push 
+          git push
