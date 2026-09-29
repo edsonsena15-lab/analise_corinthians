@@ -1,0 +1,27 @@
+id_jogo,data,status,adversario,mando,gols_corinthians,gols_adversario,resultado,estadio,cidade,posse_corinthians,finalizacoes_corinthians,chutes_alvo_corinthians,chutes_fora_corinthians,chutes_bloqueados_corinthians,chutes_area_corinthians,chutes_fora_area_corinthians,escanteios_corinthians,faltas_corinthians,impedimentos_corinthians,passes_corinthians,passes_certos_corinthians,amarelos_corinthians,vermelhos_corinthians,defesas_corinthians,posse_adversario,finalizacoes_adversario,chutes_alvo_adversario,escanteios_adversario,faltas_adversario,passes_adversario,passes_certos_adversario,amarelos_adversario,vermelhos_adversario,aproveitamento_passes_corinthians,precisao_finalizacao_corinthians,conversao_corinthians,aproveitamento_passes_adversario,precisao_finalizacao_adversario,conversao_adversario,gols_1t_corinthians,gols_1t_adversario,gols_2t_corinthians,gols_2t_adversario,resultado_intervalo
+demo_01,2026-01-28,finished,Athletico Paranaense,Casa,2,0,V,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,2,0,E
+demo_02,2026-02-04,finished,Chapecoense,Fora,0,1,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,0,0,D
+demo_03,2026-02-11,finished,Atletico Mineiro,Casa,2,0,V,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,0,1,0,V
+demo_04,2026-02-18,finished,Santos,Fora,0,1,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,1,E
+demo_05,2026-02-25,finished,Cruzeiro,Casa,6,2,V,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,1,4,1,V
+demo_06,2026-03-04,finished,Remo,Fora,1,0,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,1,0,E
+demo_07,2026-03-11,finished,Botafogo,Casa,1,0,V,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,1,0,E
+demo_08,2026-03-18,finished,Fluminense,Fora,1,0,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,1,0,E
+demo_09,2026-03-25,finished,Internacional,Casa,0,1,D,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,0,0,D
+demo_10,2026-04-01,finished,RB Bragantino,Fora,0,2,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,2,E
+demo_11,2026-04-08,finished,Vitoria,Casa,1,1,E,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,0,0,1,V
+demo_12,2026-04-15,finished,Mirassol,Fora,0,2,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,0,1,D
+demo_13,2026-04-22,finished,Palmeiras,Casa,4,1,V,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,1,2,0,V
+demo_14,2026-04-29,finished,Gremio,Fora,1,2,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,0,1,E
+demo_15,2026-05-06,finished,Vasco da Gama,Casa,0,1,D,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,1,E
+demo_16,2026-05-13,finished,Bahia,Fora,0,0,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,E
+demo_17,2026-05-20,finished,Sao Paulo,Casa,3,1,V,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,3,1,E
+demo_18,2026-07-01,finished,Coritiba,Fora,0,1,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,1,E
+demo_19,2026-07-08,finished,Flamengo,Casa,0,4,D,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,3,0,1,D
+demo_20,2026-07-15,finished,Athletico Paranaense,Fora,0,2,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,2,0,0,D
+demo_21,2026-07-22,finished,Chapecoense,Casa,3,0,V,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,0,1,0,V
+demo_22,2026-07-29,finished,Atletico Mineiro,Fora,2,1,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,0,1,1,V
+demo_23,2026-08-05,finished,Santos,Casa,1,0,V,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,0,0,0,V
+demo_24,2026-08-12,finished,Cruzeiro,Fora,2,2,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,1,D
+demo_25,2026-08-19,finished,Remo,Casa,2,1,V,Neo Química Arena,São Paulo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,0,E
+demo_26,2026-08-26,finished,Botafogo,Fora,0,0,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,E

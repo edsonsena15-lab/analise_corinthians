@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Corinthians | Painel de desempenho</title>
+  <meta name="description" content="Análise da campanha do Corinthians na Série A 2026: pontos, aproveitamento, evolução e cenários.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Início">
+        <span class="brand-mark"><img src="corinthians-logo.svg" alt="Marca do painel do Corinthians"></span>
+        <span><b>CORINTHIANS</b> 2026</span>
+      </a>
+      <nav aria-label="Seções do painel">
+        <a href="#campanha">Campanha</a>
+        <a href="#probabilidades">Probabilidades</a>
+        <a href="#evolucao">Evolução</a>
+        <a href="#jogos">Jogos</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="dashboard-heading" id="campanha">
+        <div class="dashboard-title">
+          <p class="eyebrow">BRASILEIRÃO · SÉRIE A · 2026</p>
+          <h1>Painel de desempenho</h1>
+          <p>Visão executiva da campanha do Sport Club Corinthians Paulista no campeonato.</p>
+        </div>
+        <div class="dashboard-context" aria-label="Contexto dos dados">
+          <div>
+            <span>Período analisado</span>
+            <b><span id="headerStartDate">--</span> — <span id="headerEndDate">--</span></b>
+          </div>
+          <div>
+            <span>Jogos disputados</span>
+            <b id="headerGames">-- de 38</b>
+          </div>
+          <div>
+            <span>Escopo</span>
+            <b>Casa e fora</b>
+          </div>
+        </div>
+      </section>
+
+      <div class="demo-banner" id="demoBanner" hidden>
+        <b>Dados de demonstração.</b> Os placares exibidos são fictícios e servem apenas para visualizar o painel.
+        Execute <code>coleta_detalhada.py</code> para gerar <code>corinthians_serie_a_2026_todos_jogos.csv</code> com os jogos reais.
+      </div>
+
+      <section class="filter-row" aria-label="Filtro por mando de campo">
+        <div class="segmented" id="venueFilter">
+          <button class="active" data-filter="Todos">Todos os jogos</button>
+          <button data-filter="Casa">Em casa</button>
+          <button data-filter="Fora">Fora</button>
+        </div>
+        <p id="filterContext">Visão geral da campanha</p>
+      </section>
+
+      <section class="kpi-grid" aria-label="Indicadores principais">
+        <article class="kpi kpi-featured">
+          <div class="kpi-top"><span>Aproveitamento</span><span class="kpi-icon">GERAL</span></div>
+          <strong id="kpiEfficiency">--</strong>
+          <div class="meter"><i id="efficiencyMeter"></i></div>
+          <small id="efficiencyDetail">-- de -- pontos possíveis</small>
+        </article>
+        <article class="kpi kpi-campaign">
+          <div class="kpi-top"><span>Campanha</span><span class="kpi-icon">V · E · D</span></div>
+          <div class="record-grid">
+            <div class="record-win"><strong id="kpiWins">--</strong><span>Vitórias</span></div>
+            <div class="record-draw"><strong id="kpiDraws">--</strong><span>Empates</span></div>
+            <div class="record-loss"><strong id="kpiLosses">--</strong><span>Derrotas</span></div>
+          </div>
+          <small class="points-rule">Vitória <b>3 pts</b> · Empate <b>1 pt</b> · Derrota <b>0 pt</b></small>
+        </article>
+        <article class="kpi kpi-average">
+          <div class="kpi-top"><span>Média por jogo</span><span class="kpi-icon">PTS / JOGO</span></div>
+          <strong id="kpiPpg">--</strong>
+          <div class="mini-meter"><i id="ppgMeter"></i></div>
+          <small>de um máximo de 3,00 pontos</small>
+        </article>
+        <article class="kpi kpi-goals">
+          <div class="kpi-top"><span>Saldo de gols</span><span class="kpi-icon">GOLS</span></div>
+          <strong id="kpiGoalDiff">--</strong>
+          <div class="goal-pair">
+            <span><b id="goalsFor">--</b> marcados</span>
+            <span><b id="goalsAgainst">--</b> sofridos</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="probability-section" id="probabilidades">
+        <div class="probability-head">
+          <div>
+            <p class="section-kicker">MODELO DE CENÁRIOS</p>
+            <h2 id="probabilityTitle">As rodadas finais</h2>
+          </div>
+          <p>Probabilidades estimadas pelo desempenho em casa e fora — acompanhadas do caminho necessário em pontos.</p>
+        </div>
+        <div class="probability-grid">
+          <article class="probability-card access-card">
+            <div class="probability-card-head"><span>Chance estimada de título</span><i>★</i></div>
+            <div class="probability-value"><strong id="titleProbability">--</strong><em id="titleTag">--</em></div>
+            <div class="probability-bar"><i id="titleBar"></i></div>
+            <div class="probability-facts">
+              <div><span>Meta usada</span><b id="titleTarget">--</b></div>
+              <div><span>A conquistar</span><b id="titlePointsNeeded">--</b></div>
+            </div>
+            <p id="titleDetail">--</p>
+          </article>
+          <article class="probability-card playoff-card">
+            <div class="probability-card-head"><span>Chance de vaga na Libertadores</span><i>G6</i></div>
+            <div class="probability-value"><strong id="libertadoresProbability">--</strong><em id="libertadoresTag">--</em></div>
+            <div class="probability-bar"><i id="libertadoresBar"></i></div>
+            <div class="probability-facts">
+              <div><span>Meta usada</span><b id="libertadoresTarget">--</b></div>
+              <div><span>A conquistar</span><b id="libertadoresPointsNeeded">--</b></div>
+            </div>
+            <p id="libertadoresDetail">--</p>
+          </article>
+          <article class="probability-card relegation-card">
+            <div class="probability-card-head"><span>Risco de rebaixamento</span><i>Z4</i></div>
+            <div class="probability-value"><strong id="relegationProbability">--</strong><em id="relegationTag">--</em></div>
+            <div class="probability-bar"><i id="relegationBar"></i></div>
+            <div class="probability-facts">
+              <div><span>Chance de ficar</span><b id="survivalProbability">--</b></div>
+              <div><span>Até 45 pontos</span><b id="safetyPointsNeeded">--</b></div>
+            </div>
+            <p id="relegationDetail">--</p>
+          </article>
+          <aside class="model-card">
+            <div class="probability-card-head"><span>FAIXA MAIS PROVÁVEL</span><i>38R</i></div>
+            <strong id="likelyRange">--</strong>
+            <div class="range-scale">
+              <i></i><i class="median-dot"></i><i></i>
+            </div>
+            <div class="range-labels"><span id="rangeLow">--</span><b id="rangeMedian">--</b><span id="rangeHigh">--</span></div>
+            <p id="modelSummary">--</p>
+            <button type="button" id="modelInfoButton">Como calculamos?</button>
+          </aside>
+        </div>
+        <div class="model-explanation" id="modelExplanation" hidden>
+          <p><b>Modelo:</b> distribuição preditiva bayesiana (prior de Jeffreys) com os resultados do Corinthians separados por mando. As referências usadas na Série A de pontos corridos são: título com 75 pontos ou mais; vaga na Libertadores (faixa do G6) com 60 ou mais; e risco de queda (Z4) com 44 pontos ou menos, um limite conservador diante das últimas edições.</p>
+          <p>É uma estimativa de cenário, não uma probabilidade oficial: a base não contém os jogos completos dos outros 19 clubes, critérios de desempate, desfalques ou força dos próximos adversários. O número de vagas para a Libertadores varia conforme os campeões das copas.</p>
+        </div>
+      </section>
+
+      <section class="dashboard-grid" id="evolucao">
+        <article class="panel chart-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">RODADA A RODADA</p>
+              <h2>Evolução dos pontos</h2>
+            </div>
+            <div class="legend"><span><i class="actual"></i>Corinthians</span><span><i class="pace"></i>Ritmo de 50%</span></div>
+          </div>
+          <div class="chart-statline">
+            <div><span>Pontuação atual</span><b id="chartCurrentPoints">--</b></div>
+            <div><span>Ritmo de 50%</span><b id="chartPacePoints">--</b></div>
+            <div id="chartGapCard"><span>Diferença</span><b id="chartGap">--</b></div>
+          </div>
+          <div class="chart-wrap" id="pointsChart" role="img" aria-label="Gráfico de evolução de pontos"></div>
+          <div class="chart-insight" id="chartInsight"></div>
+        </article>
+
+        <article class="panel campaign-panel">
+          <div class="panel-head compact">
+            <div>
+              <p class="section-kicker">DISTRIBUIÇÃO</p>
+              <h2>Resultados</h2>
+            </div>
+          </div>
+          <div class="donut-row">
+            <div class="donut" id="resultDonut"><div><strong id="donutEfficiency">--</strong><span>aproveitamento</span></div></div>
+            <div class="result-list">
+              <div class="result-win"><span><i class="win"></i>Vitórias</span><small id="winsPercent">--</small><b id="winsCount">--</b></div>
+              <div class="result-draw"><span><i class="draw"></i>Empates</span><small id="drawsPercent">--</small><b id="drawsCount">--</b></div>
+              <div class="result-loss"><span><i class="loss"></i>Derrotas</span><small id="lossesPercent">--</small><b id="lossesCount">--</b></div>
+            </div>
+          </div>
+          <div class="result-highlights">
+            <div><span>Taxa de vitória</span><b id="winRate">--</b></div>
+            <div><span>Jogos sem derrota</span><b id="nonLossRate">--</b></div>
+          </div>
+          <div class="form-block">
+            <span>RECORTE DOS ÚLTIMOS 5</span>
+            <div id="recentForm" class="form-dots"></div>
+            <small id="recentPoints">--</small>
+          </div>
+        </article>
+
+        <article class="panel venue-panel">
+          <div class="panel-head compact">
+            <div>
+              <p class="section-kicker">MANDO DE CAMPO</p>
+              <h2>Onde rende mais?</h2>
+            </div>
+          </div>
+          <div id="venueComparison"></div>
+          <div class="analysis-note" id="venueInsight"></div>
+        </article>
+
+        <article class="panel projection-panel">
+          <div class="panel-head compact">
+            <div>
+              <p class="section-kicker">PROJEÇÃO · 38 RODADAS</p>
+              <h2>Cenário de chegada</h2>
+            </div>
+            <span class="projection-number" id="projectedPoints">-- pts</span>
+          </div>
+          <p class="projection-copy" id="projectionCopy"></p>
+          <div class="target-control">
+            <label for="targetPoints">Simular meta de pontos</label>
+            <div class="range-line">
+              <input id="targetPoints" type="range" min="40" max="80" value="60">
+              <output id="targetOutput" for="targetPoints">60</output>
+            </div>
+          </div>
+          <div class="scenario" id="scenarioText"></div>
+          <div class="remaining-fixtures">
+            <span>PRÓXIMOS ADVERSÁRIOS</span>
+            <div id="remainingFixtures"></div>
+          </div>
+          <small class="method">Simulação considera vitórias e derrotas nos jogos restantes; cada empate reduz a necessidade em 1 ponto.</small>
+        </article>
+
+        <article class="panel performance-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">CONSISTÊNCIA</p>
+              <h2>Rendimento jogo a jogo</h2>
+            </div>
+            <div class="points-key"><span><i class="p3"></i>3 pts</span><span><i class="p1"></i>1 pt</span><span><i class="p0"></i>0 pt</span></div>
+          </div>
+          <div class="game-strip" id="gameStrip"></div>
+          <div class="period-grid" id="periodGrid"></div>
+          <div class="streak-grid" id="streakGrid"></div>
+        </article>
+
+        <article class="panel halves-panel">
+          <div class="panel-head halves-head">
+            <div>
+              <p class="section-kicker">MOMENTOS DO JOGO</p>
+              <h2>Antes e depois do intervalo</h2>
+            </div>
+            <p>Comparação dos gols marcados e sofridos em cada etapa da partida.</p>
+          </div>
+          <div class="halves-grid">
+            <section class="half-card">
+              <div class="half-card-head">
+                <div><span>1º TEMPO</span><small>até o intervalo</small></div>
+                <b id="firstHalfBalance">-- saldo</b>
+              </div>
+              <div class="half-score">
+                <div><strong id="firstHalfFor">--</strong><span>marcados</span></div>
+                <i>×</i>
+                <div><strong id="firstHalfAgainst">--</strong><span>sofridos</span></div>
+              </div>
+              <div class="half-bars">
+                <div><span>Pró</span><i><b id="firstForBar"></b></i></div>
+                <div><span>Contra</span><i><b class="against" id="firstAgainstBar"></b></i></div>
+              </div>
+              <div class="half-share"><span>Participação nos gols marcados</span><b id="firstHalfShare">--</b></div>
+            </section>
+            <section class="half-card second">
+              <div class="half-card-head">
+                <div><span>2º TEMPO</span><small>após o intervalo</small></div>
+                <b id="secondHalfBalance">-- saldo</b>
+              </div>
+              <div class="half-score">
+                <div><strong id="secondHalfFor">--</strong><span>marcados</span></div>
+                <i>×</i>
+                <div><strong id="secondHalfAgainst">--</strong><span>sofridos</span></div>
+              </div>
+              <div class="half-bars">
+                <div><span>Pró</span><i><b id="secondForBar"></b></i></div>
+                <div><span>Contra</span><i><b class="against" id="secondAgainstBar"></b></i></div>
+              </div>
+              <div class="half-share"><span>Participação nos gols marcados</span><b id="secondHalfShare">--</b></div>
+            </section>
+          </div>
+          <div class="halves-insights">
+            <div><span>MAIS PRODUTIVO</span><b id="productiveHalf">--</b></div>
+            <div><span>MAIS VULNERÁVEL</span><b id="vulnerableHalf">--</b></div>
+            <div class="result-change-card"><span>MUDANÇA APÓS O INTERVALO</span><b id="improvedResults">--</b><small id="unchangedResults">--</small></div>
+            <div><span>SALDO DAS REAÇÕES</span><b id="pointsSwing">--</b><small>pontos entre o intervalo e o resultado final</small></div>
+          </div>
+          <div class="analysis-note halves-note">
+            <span>LEITURA POR TEMPO</span>
+            <p id="halvesInsight"></p>
+          </div>
+        </article>
+      </section>
+
+      <section class="matches-section" id="jogos">
+        <div class="matches-head">
+          <div>
+            <p class="section-kicker">JOGO A JOGO</p>
+            <h2>A campanha completa</h2>
+          </div>
+          <label class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="matchSearch" type="search" placeholder="Buscar adversário" aria-label="Buscar adversário">
+          </label>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Rodada</th><th>Data</th><th>Partida</th><th>Mando</th><th>Resultado</th><th>Pontos</th><th>Acumulado</th></tr></thead>
+            <tbody id="matchesBody"></tbody>
+          </table>
+        </div>
+        <p class="empty-state" id="emptyState" hidden>Nenhum jogo encontrado.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Painel Corinthians · Série A 2026</span>
+      <span id="footerSource">Fonte: base local de jogos</span>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
