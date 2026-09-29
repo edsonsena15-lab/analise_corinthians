@@ -1,1 +1,39 @@
 id_jogo,data,status,adversario,mando,gols_corinthians,gols_adversario,resultado,estadio,cidade,posse_corinthians,finalizacoes_corinthians,chutes_alvo_corinthians,chutes_fora_corinthians,chutes_bloqueados_corinthians,chutes_area_corinthians,chutes_fora_area_corinthians,escanteios_corinthians,faltas_corinthians,impedimentos_corinthians,passes_corinthians,passes_certos_corinthians,amarelos_corinthians,vermelhos_corinthians,defesas_corinthians,posse_adversario,finalizacoes_adversario,chutes_alvo_adversario,escanteios_adversario,faltas_adversario,passes_adversario,passes_certos_adversario,amarelos_adversario,vermelhos_adversario,aproveitamento_passes_corinthians,precisao_finalizacao_corinthians,conversao_corinthians,aproveitamento_passes_adversario,precisao_finalizacao_adversario,conversao_adversario,gols_1t_corinthians,gols_1t_adversario,gols_2t_corinthians,gols_2t_adversario,resultado_intervalo
+fd_554743,2026-01-28,finished,Bahia,Casa,1,2,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,2,0,0,D
+fd_554763,2026-02-12,finished,Bragantino,Casa,2,0,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,2,0,E
+fd_554750,2026-02-19,finished,Paranaense,Fora,1,0,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,0,0,0,V
+fd_554774,2026-02-25,finished,Cruzeiro,Fora,1,1,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,0,D
+fd_554783,2026-03-11,finished,Coritiba,Casa,0,2,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,0,1,D
+fd_554798,2026-03-15,finished,Santos,Fora,1,1,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,0,0,E
+fd_554803,2026-03-19,finished,Chapecoense,Fora,0,0,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,E
+fd_554812,2026-03-22,finished,Flamengo,Casa,1,1,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,0,0,E
+fd_554826,2026-04-01,finished,Fluminense,Fora,1,3,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,2,1,1,D
+fd_554833,2026-04-05,finished,Internacional,Casa,0,1,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,1,E
+fd_554842,2026-04-12,finished,Palmeiras,Casa,0,0,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,E
+fd_554859,2026-04-18,finished,Vitória,Fora,0,0,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,E
+fd_554865,2026-04-26,finished,Vasco da Gama,Casa,1,0,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,0,0,0,V
+fd_554876,2026-05-03,finished,Mirassol,Fora,1,2,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,2,1,0,D
+fd_554882,2026-05-10,finished,São Paulo,Casa,3,2,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,2,1,E
+fd_554893,2026-05-17,finished,Botafogo,Fora,1,3,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,2,0,1,D
+fd_554900,2026-05-24,finished,Mineiro,Casa,1,0,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,1,0,E
+fd_554915,2026-05-30,finished,Grêmio,Fora,3,1,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,2,0,E
+fd_554923,2026-07-23,finished,Clube do Remo,Casa,3,0,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,0,0,0,V
+fd_554931,2026-07-26,finished,Bahia,Fora,1,1,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,0,0,E
+fd_554943,2026-07-30,finished,Paranaense,Casa,0,0,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,E
+fd_554952,2026-08-09,finished,Bragantino,Fora,2,0,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,2,0,E
+fd_554963,2026-08-16,finished,Cruzeiro,Casa,1,2,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,1,D
+fd_554973,2026-08-23,finished,Coritiba,Fora,1,2,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,1,D
+fd_554983,2026-08-30,finished,Santos,Casa,0,1,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,0,0,D
+fd_554992,2026-09-06,finished,Chapecoense,Casa,1,2,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,0,1,E
+fd_555005,2026-09-13,finished,Flamengo,Fora,1,2,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,1,2,E
+fd_555012,2026-09-20,finished,Fluminense,Casa,1,3,D,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,2,D
+fd_555025,2026-10-07,timed,Internacional,Fora,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+fd_555037,2026-10-11,timed,Palmeiras,Fora,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+fd_555044,2026-10-19,timed,Vitória,Casa,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+fd_555058,2026-10-24,timed,Vasco da Gama,Fora,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+fd_555063,2026-10-30,timed,Mirassol,Casa,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+fd_555078,2026-11-04,timed,São Paulo,Fora,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+fd_555080,2026-11-17,scheduled,Botafogo,Casa,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+fd_555091,2026-11-20,scheduled,Mineiro,Fora,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+fd_555103,2026-11-27,scheduled,Grêmio,Casa,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+fd_555117,2026-12-01,scheduled,Clube do Remo,Fora,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
