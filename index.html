@@ -93,6 +93,41 @@
       </section>
 
       <section class="probability-section" id="probabilidades">
+              <section class="standings-section" id="classificacao" hidden>
+        <div class="probability-head">
+          <div>
+            <p class="section-kicker">CLASSIFICAÇÃO</p>
+            <h2>Situação na tabela</h2>
+          </div>
+          <p id="standingsUpdated">--</p>
+        </div>
+        <div class="standings-cards">
+          <article class="standings-card">
+            <span>Posição atual</span>
+            <strong id="standingsPosition">--</strong>
+            <p id="standingsPositionDetail">--</p>
+          </article>
+          <article class="standings-card danger">
+            <span>Distância para o Z4</span>
+            <strong id="standingsZ4">--</strong>
+            <p id="standingsZ4Detail">--</p>
+          </article>
+          <article class="standings-card">
+            <span>Distância para o G6</span>
+            <strong id="standingsG6">--</strong>
+            <p id="standingsG6Detail">--</p>
+          </article>
+        </div>
+        <p class="standings-alert" id="standingsAlert" hidden></p>
+        <div class="standings-table-wrap">
+          <table class="standings-table">
+            <thead>
+              <tr><th>#</th><th>Time</th><th>J</th><th>V-E-D</th><th>SG</th><th>Pts</th><th>Últimos 5</th></tr>
+            </thead>
+            <tbody id="standingsRows"></tbody>
+          </table>
+        </div>
+      </section>
         <div class="probability-head">
           <div>
             <p class="section-kicker">MODELO DE CENÁRIOS</p>
