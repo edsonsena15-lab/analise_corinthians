@@ -503,6 +503,7 @@ function toMatches(csvText) {
 async function fetchText(file) {
   try {
     const response = await fetch(file, {cache: 'no-store'});
+    
     return response.ok ? await response.text() : '';
   } catch (_) {
     return '';
@@ -542,4 +543,103 @@ $('modelInfoButton').addEventListener('click', () => {
   $('modelInfoButton').textContent = explanation.hidden ? 'Como calculamos?' : 'Ocultar metodologia';
 });
 
-loadCsv().finally(renderAll);
+// ===== Classificação (tabela_serie_a.csv) =====
+const STANDINGS_FILE = 'tabela_serie_a.csv';
+const TEAM_ID = 1779;   // Corinthians na football-data.org
+const Z4_START = 17;    // 17º colocado abre a zona de rebaixamento
+const G6_END = 6;       // 6º colocado fecha a faixa do G6
+let standings = [];
+
+async function loadStandings() {
+  const text = window.__TABELA_CSV__ || await fetchText(STANDINGS_FILE);
+  if (!text) return;
+  standings = parseCsv(text).map(row => ({
+    pos: Number(row.posicao),
+    id: Number(row.time_id),
+    team: row.time,
+    crest: row.escudo,
+    games: Number(row.jogos),
+    pts: Number(row.pontos),
+    w: Number(row.vitorias),
+    d: Number(row.empates),
+    l: Number(row.derrotas),
+    gd: Number(row.saldo_gols),
+    form: row.forma ? row.forma.split(',') : [],
+    updated: row.atualizado_em
+  })).sort((a, b) => a.pos - b.pos);
+}
+
+function pointsText(value) {
+  return `${value} ponto${Math.abs(value) === 1 ? '' : 's'}`;
+}
+
+function renderStandings() {
+  const me = standings.find(team => team.id === TEAM_ID);
+  if (usingDemoData || !me) return;   // sem tabela real, a seção continua escondida
+  $('classificacao').hidden = false;
+
+  const z4 = standings.find(team => team.pos === Z4_START);
+  const safe = standings.find(team => team.pos === Z4_START - 1);
+  const g6 = standings.find(team => team.pos === G6_END);
+
+  $('standingsUpdated').textContent = `Classificação oficial da Série A, atualizada em ${formatDate(me.updated)}.`;
+  $('standingsPosition').textContent = `${me.pos}º`;
+  $('standingsPositionDetail').textContent = `${me.pts} pontos em ${me.games} jogos · saldo ${me.gd > 0 ? '+' : ''}${me.gd}`;
+
+  if (me.pos < Z4_START) {
+    const gap = me.pts - z4.pts;
+    $('standingsZ4').textContent = `+${gap} pts`;
+    $('standingsZ4Detail').textContent = `Acima do ${z4.team} (${z4.pos}º, ${z4.pts} pts), o primeiro time do Z4.`;
+  } else {
+    const gap = safe.pts - me.pts;
+    $('standingsZ4').textContent = 'No Z4';
+    $('standingsZ4Detail').textContent = `Precisa de ${pointsText(gap)} para alcançar o ${safe.team} (${safe.pos}º).`;
+  }
+
+  if (me.pos > G6_END) {
+    const gap = g6.pts - me.pts;
+    $('standingsG6').textContent = `−${gap} pts`;
+    $('standingsG6Detail').textContent = `Atrás do ${g6.team} (${g6.pos}º, ${g6.pts} pts), o último time do G6.`;
+  } else {
+    $('standingsG6').textContent = 'No G6';
+    $('standingsG6Detail').textContent = `Dentro da faixa do G6 (até o ${G6_END}º lugar).`;
+  }
+
+  // Rivais logo abaixo que têm jogos a menos e podem ultrapassar o Corinthians
+  const threats = standings.filter(team =>
+    team.pos > me.pos && team.games < me.games && team.pts + 3 * (me.games - team.games) >= me.pts
+  );
+  $('standingsAlert').hidden = threats.length === 0;
+  $('standingsAlert').textContent = threats.length
+    ? `Atenção: ${threats.map(t => `${t.team} (${t.pts} pts, ${me.games - t.games} jogo${me.games - t.games === 1 ? '' : 's'} a menos)`).join(', ')} pode${threats.length === 1 ? '' : 'm'} ultrapassar o Corinthians só com os jogos atrasados.`
+    : '';
+
+  // Tabela: 2 posições acima do Corinthians até o 18º (ou 2 abaixo, o que vier depois)
+  const first = Math.max(1, me.pos - 2);
+  const last = Math.min(standings.length, Math.max(Z4_START + 1, me.pos + 2));
+  const formLabel = {W: 'V', D: 'E', L: 'D'};
+  $('standingsRows').innerHTML = standings
+    .filter(team => team.pos >= first && team.pos <= last)
+    .map(team => {
+      const classes = [
+        team.id === TEAM_ID ? 'is-team' : '',
+        team.pos >= Z4_START ? 'is-z4' : '',
+        team.pos === Z4_START ? 'z4-line' : ''
+      ].join(' ');
+      const dots = team.form.map(r => `<i class="${formLabel[r]}">${formLabel[r]}</i>`).join('');
+      return `<tr class="${classes}">
+        <td>${team.pos}</td>
+        <td><span class="standings-team"><img src="${team.crest}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">${team.team}</span></td>
+        <td>${team.games}</td>
+        <td>${team.w}-${team.d}-${team.l}</td>
+        <td>${team.gd > 0 ? '+' : ''}${team.gd}</td>
+        <td><b>${team.pts}</b></td>
+        <td><span class="form-dots">${dots}</span></td>
+      </tr>`;
+    }).join('');
+}
+
+Promise.all([loadCsv(), loadStandings()]).finally(() => {
+  renderAll();
+  renderStandings();
+});
