@@ -164,6 +164,62 @@
         </div>
         <p class="players-footnote">Na barra de participações, preto = gols e dourado = assistências. Desarmes e passes por jogador não estão disponíveis na fonte gratuita (football-data.org).</p>
       </section>
+            <section class="standings-section" id="simulacao" hidden>
+        <div class="probability-head">
+          <div>
+            <p class="section-kicker">SIMULAÇÃO DO CAMPEONATO</p>
+            <h2 id="simTitle">As rodadas finais</h2>
+          </div>
+          <p id="simNote">--</p>
+        </div>
+        <div class="sim-cards">
+          <article class="standings-card">
+            <span>Chance de título</span>
+            <strong id="simTitleProb">--</strong>
+            <p id="simTitleDetail">--</p>
+          </article>
+          <article class="standings-card">
+            <span>Chance de G6</span>
+            <strong id="simG6Prob">--</strong>
+            <p id="simG6Detail">--</p>
+          </article>
+          <article class="standings-card danger">
+            <span>Risco de rebaixamento</span>
+            <strong id="simZ4Prob">--</strong>
+            <p id="simZ4Detail">--</p>
+          </article>
+          <article class="standings-card">
+            <span>Faixa provável de pontos</span>
+            <strong id="simRange">--</strong>
+            <p id="simRangeDetail">--</p>
+          </article>
+        </div>
+        <div class="sim-grid">
+          <article class="sim-panel">
+            <h3>Posição final do Corinthians</h3>
+            <p class="sim-panel-note">Em quantas das temporadas simuladas o time terminou em cada posição.</p>
+            <div id="simPositions"></div>
+          </article>
+          <article class="sim-panel">
+            <h3>Briga contra o rebaixamento</h3>
+            <p class="sim-panel-note">Times com chance relevante de terminar no Z4, do maior para o menor risco.</p>
+            <div class="standings-table-wrap">
+              <table class="standings-table">
+                <thead>
+                  <tr><th>Time</th><th>Pts</th><th>Rest.</th><th>Pts no fim</th><th>Risco de Z4</th></tr>
+                </thead>
+                <tbody id="simRivals"></tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+        <details class="sim-method">
+          <summary>Como calculamos?</summary>
+          <p id="simMethod">--</p>
+          <p><b>O que o modelo não considera:</b> todos os jogos da temporada têm o mesmo peso (uma sequência recente boa ou ruim não pesa mais); lesões, suspensões e trocas de técnico ficam de fora; e o confronto direto, último critério de desempate, é resolvido por sorteio. Leia os números como estimativas, não como certezas.</p>
+        </details>
+      </section>
+      
       <section class="probability-section" id="probabilidades">
           ction>
         <div class="probability-head">

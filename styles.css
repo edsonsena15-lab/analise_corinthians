@@ -455,3 +455,29 @@ footer { display: none; }
 .players-table .bar .g { background: #111; }
 .players-table .bar .a { background: #c89a3b; }
 .players-footnote { color: var(--muted); font-size: 11px; margin: 10px 2px 0; }
+
+/* ===== Simulação do campeonato ===== */
+.sim-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 16px; }
+.sim-grid { display: grid; grid-template-columns: minmax(300px, 1fr) minmax(0, 1.7fr); gap: 16px; }
+.sim-panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 22px 24px; }
+.sim-panel h3 { margin: 0; font-size: 18px; }
+.sim-panel-note { color: var(--muted); font-size: 11px; margin: 4px 0 16px; }
+.sim-panel .standings-table-wrap { border: 0; }
+.pos-row { display: grid; grid-template-columns: 34px 1fr 48px; align-items: center; gap: 10px; font-size: 12px; margin-bottom: 5px; }
+.pos-row span:first-child { color: var(--muted); font-weight: 700; text-align: right; }
+.pos-row span:last-child { font-weight: 700; }
+.pos-bar { height: 14px; border-radius: 4px; background: #ebebea; overflow: hidden; }
+.pos-bar i { display: block; height: 100%; background: #8c8a85; border-radius: 4px; }
+.pos-row.g6 .pos-bar i { background: #111; }
+.pos-row.z4 .pos-bar i { background: var(--danger); }
+.pos-row.current span:first-child { color: var(--ink); }
+.risk-cell { display: flex; align-items: center; gap: 8px; min-width: 130px; }
+.risk-cell .bar { flex: 1; height: 8px; border-radius: 99px; background: #ebebea; overflow: hidden; }
+.risk-cell .bar i { display: block; height: 100%; background: var(--danger); }
+.sim-method { margin-top: 16px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px 18px; font-size: 12px; color: var(--muted); line-height: 1.6; }
+.sim-method summary { cursor: pointer; font-weight: 800; color: var(--ink); }
+@media (max-width: 1000px) { .sim-cards { grid-template-columns: repeat(2, 1fr); } .sim-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .sim-cards { grid-template-columns: 1fr; } }
+.sim-panel .standings-table th, .sim-panel .standings-table td { padding: 10px 8px; }
+.sim-panel .risk-cell { min-width: 120px; }
+.sim-panel .standings-table { min-width: 0; }

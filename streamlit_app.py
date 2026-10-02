@@ -34,6 +34,10 @@ def build_dashboard() -> str:
     logo = base64.b64encode((ROOT / "corinthians-logo.svg").read_bytes()).decode("ascii")
     artilharia_path = ROOT / "artilharia_corinthians.csv"
     artilharia_text = artilharia_path.read_text(encoding="utf-8-sig") if artilharia_path.exists() else ""
+    simulacao_path = ROOT / "simulacao_serie_a.csv"
+    simulacao_text = simulacao_path.read_text(encoding="utf-8-sig") if simulacao_path.exists() else ""
+    posicoes_path = ROOT / "simulacao_posicoes_corinthians.csv"
+    posicoes_text = posicoes_path.read_text(encoding="utf-8-sig") if posicoes_path.exists() else ""
 
     html = html.replace(
         '<link rel="stylesheet" href="styles.css">',
@@ -53,6 +57,9 @@ def build_dashboard() -> str:
         window.__CORINTHIANS_DEMO_CSV__ = {embed(demo_text)};
                 window.__TABELA_CSV__ = {embed(tabela_text)};
                 window.__ARTILHARIA_CSV__ = {embed(artilharia_text)};
+                        window.__SIMULACAO_CSV__ = {embed(simulacao_text)};
+        window.__SIMULACAO_POS_CSV__ = {embed(posicoes_text)};
+        
       </script>
       <script>{javascript}</script>
       <script>

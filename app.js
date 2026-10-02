@@ -688,10 +688,108 @@ function renderPlayers() {
     </tr>`).join('');
 }
 
-Promise.all([loadCsv(), loadStandings(), loadPlayers()]).finally(() => {
+// ===== Simulação do campeonato (simulacao_serie_a.csv) =====
+const SIM_FILE = 'simulacao_serie_a.csv';
+const SIM_POSITIONS_FILE = 'simulacao_posicoes_corinthians.csv';
+let simulation = [];
+let simPositions = [];
+
+async function loadSimulation() {
+  const [text, positionsText] = await Promise.all([
+    window.__SIMULACAO_CSV__ || fetchText(SIM_FILE),
+    window.__SIMULACAO_POS_CSV__ || fetchText(SIM_POSITIONS_FILE)
+  ]);
+  if (text) {
+    simulation = parseCsv(text).map(row => ({
+      id: Number(row.time_id),
+      team: row.time,
+      pts: Number(row.pontos_atuais),
+      left: Number(row.jogos_restantes),
+      avgPts: Number(row.pontos_medios),
+      p10: Number(row.pontos_p10),
+      p50: Number(row.pontos_p50),
+      p90: Number(row.pontos_p90),
+      avgPos: Number(row.posicao_media),
+      title: Number(row.prob_titulo),
+      g6: Number(row.prob_g6),
+      z4: Number(row.prob_z4),
+      runs: Number(row.simulacoes),
+      updated: row.atualizado_em
+    }));
+  }
+  if (positionsText) {
+    simPositions = parseCsv(positionsText).map(row => ({pos: Number(row.posicao), prob: Number(row.probabilidade)}));
+  }
+}
+
+function simPercent(p) {
+  if (p === 0) return '0%';
+  if (p < 0.001) return '<0,1%';
+  if (p > 0.999) return '>99,9%';
+  return `${(p * 100).toFixed(1).replace('.', ',')}%`;
+}
+
+function renderSimulation() {
+  const me = simulation.find(team => team.id === TEAM_ID);
+  if (usingDemoData || !me) return;   // sem simulação, fica o modelo antigo
+
+  // Mostra a seção nova, esconde a antiga e aponta o menu "Probabilidades" para a nova
+  $('simulacao').hidden = false;
+  $('probabilidades').style.display = 'none';
+  const menuLink = document.querySelector('nav a[href="#probabilidades"]');
+  if (menuLink) menuLink.setAttribute('href', '#simulacao');
+
+  const runs = me.runs.toLocaleString('pt-BR');
+  $('simTitle').textContent = me.left === 1 ? 'A última rodada' : `As ${me.left} rodadas finais`;
+  $('simNote').textContent = `${runs} temporadas simuladas com todos os jogos restantes da Série A. Atualizado em ${formatDate(me.updated)}.`;
+
+  $('simTitleProb').textContent = simPercent(me.title);
+  $('simTitleDetail').textContent = probabilityTag(me.title, ['Favorito', 'Na briga', 'Longe', 'Muito difícil']);
+  $('simG6Prob').textContent = simPercent(me.g6);
+  $('simG6Detail').textContent = `Terminar entre os seis primeiros, faixa de vagas para a Libertadores.`;
+  $('simZ4Prob').textContent = simPercent(me.z4);
+  $('simZ4Detail').textContent = `Terminar entre o 17º e o 20º lugar. Chance de permanecer: ${simPercent(1 - me.z4)}.`;
+  $('simRange').textContent = `${me.p10}–${me.p90}`;
+  $('simRangeDetail').textContent = `Em 80% dos cenários. Centro da projeção: ${me.p50} pontos; posição média: ${me.avgPos.toFixed(1).replace('.', ',')}º.`;
+
+  // Gráfico da posição final: só posições com pelo menos 0,1% de chance
+  const shown = simPositions.filter(item => item.prob >= 0.001);
+  const maxProb = Math.max(...shown.map(item => item.prob), 0.0001);
+  const currentPos = (standings.find(team => team.id === TEAM_ID) || {}).pos;
+  $('simPositions').innerHTML = shown.map(item => {
+    const zone = item.pos <= G6_END ? 'g6' : item.pos >= Z4_START ? 'z4' : '';
+    const current = item.pos === currentPos ? 'current' : '';
+    return `<div class="pos-row ${zone} ${current}">
+      <span>${item.pos}º</span>
+      <span class="pos-bar"><i style="width:${item.prob / maxProb * 100}%"></i></span>
+      <span>${simPercent(item.prob)}</span>
+    </div>`;
+  }).join('');
+
+  // Briga contra o rebaixamento: times com risco entre 1% e 99%, mais o Corinthians
+  const rivals = simulation
+    .filter(team => team.id === TEAM_ID || (team.z4 >= 0.01 && team.z4 <= 0.99))
+    .sort((a, b) => b.z4 - a.z4);
+  $('simRivals').innerHTML = rivals.map(team => `
+    <tr class="${team.id === TEAM_ID ? 'is-team' : ''}">
+      <td>${team.team}</td>
+      <td>${team.pts}</td>
+      <td>${team.left}</td>
+      <td>${team.avgPts.toFixed(1).replace('.', ',')}</td>
+      <td><span class="risk-cell"><span class="bar"><i style="width:${team.z4 * 100}%"></i></span><b>${simPercent(team.z4)}</b></span></td>
+    </tr>`).join('');
+
+  $('simMethod').textContent = `Cada jogo restante é sorteado ${runs} vezes. Os gols de cada time seguem uma distribuição de Poisson, `
+    + `calculada a partir da média de gols da liga e da força de ataque e de defesa de cada clube, em casa e fora `
+    + `(suavizada com 5 jogos de "time médio" para não exagerar campanhas curtas). Ao fim de cada temporada simulada, `
+    + `a tabela é ordenada por pontos, vitórias, saldo e gols pró, e as posições finais são contadas.`;
+}
+
+Promise.all([loadCsv(), loadStandings(), loadPlayers(), loadSimulation()]).finally(() => {
   renderAll();
   renderStandings();
   renderPlayers();
+  renderSimulation();
 });
 
 // ===== Menu: rolar até a seção =====
