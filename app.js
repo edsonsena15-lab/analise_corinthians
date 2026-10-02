@@ -639,7 +639,69 @@ function renderStandings() {
     }).join('');
 }
 
-Promise.all([loadCsv(), loadStandings()]).finally(() => {
+// ===== Jogadores (artilharia_corinthians.csv) =====
+const PLAYERS_FILE = 'artilharia_corinthians.csv';
+let players = [];
+
+async function loadPlayers() {
+  const text = window.__ARTILHARIA_CSV__ || await fetchText(PLAYERS_FILE);
+  if (!text) return;
+  players = parseCsv(text).map(row => ({
+    name: row.jogador,
+    games: row.jogos,
+    goals: Number(row.gols),
+    assists: Number(row.assistencias),
+    total: Number(row.participacoes),
+    updated: row.atualizado_em
+  }));
+}
+
+function renderPlayers() {
+  if (usingDemoData || !players.length) return;
+  $('jogadores').hidden = false;
+
+  const byGoals = [...players].sort((a, b) => b.goals - a.goals || b.assists - a.assists)[0];
+  const byAssists = [...players].sort((a, b) => b.assists - a.assists || b.goals - a.goals)[0];
+  const listedGoals = players.reduce((sum, p) => sum + p.goals, 0);
+  const teamGoals = summarize(matches).gf;
+
+  $('playersNote').textContent = `Jogadores do Corinthians entre os 100 principais artilheiros da Série A. Atualizado em ${formatDate(players[0].updated)}.`;
+  $('topScorer').textContent = byGoals.name;
+  $('topScorer').className = 'player-name';
+  const tied = players.filter(p => p.goals === byGoals.goals).length - 1;
+  $('topScorerDetail').textContent = `${byGoals.goals} gol${byGoals.goals === 1 ? '' : 's'} e ${byGoals.assists} assistência${byGoals.assists === 1 ? '' : 's'}`
+    + (tied ? ` · empatado em gols com ${tied} jogador${tied === 1 ? '' : 'es'}, desempate pelas assistências` : '');
+  $('topAssist').textContent = byAssists.name;
+  $('topAssist').className = 'player-name';
+  $('topAssistDetail').textContent = `${byAssists.assists} assistência${byAssists.assists === 1 ? '' : 's'} e ${byAssists.goals} gol${byAssists.goals === 1 ? '' : 's'}`;
+  $('goalsCoverage').textContent = `${listedGoals} de ${teamGoals}`;
+  $('goalsCoverageDetail').textContent = `Os outros ${Math.max(0, teamGoals - listedGoals)} gols são de jogadores fora do ranking (ou gols contra).`;
+
+  const max = Math.max(...players.map(p => p.total), 1);
+  $('playersRows').innerHTML = players.map(p => `
+    <tr>
+      <td><b>${p.name}</b></td>
+      <td>${p.games || '—'}</td>
+      <td>${p.goals}</td>
+      <td>${p.assists}</td>
+      <td><span class="bar-cell"><span class="bar"><i class="g" style="width:${p.goals / max * 100}%"></i><i class="a" style="width:${p.assists / max * 100}%"></i></span><b>${p.total}</b></span></td>
+    </tr>`).join('');
+}
+
+Promise.all([loadCsv(), loadStandings(), loadPlayers()]).finally(() => {
   renderAll();
   renderStandings();
+  renderPlayers();
+});
+
+// ===== Menu: rolar até a seção =====
+// Dentro do Streamlit o painel fica num quadro (iframe) da altura da página inteira,
+// então o link "#secao" não tem o que rolar. scrollIntoView rola a página de fora.
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+  link.addEventListener('click', event => {
+    const target = document.getElementById(link.getAttribute('href').slice(1));
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({behavior: 'smooth', block: 'start'});
+  });
 });

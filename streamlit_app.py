@@ -32,6 +32,8 @@ def build_dashboard() -> str:
     tabela_path = ROOT / "tabela_serie_a.csv"
     tabela_text = tabela_path.read_text(encoding="utf-8-sig") if tabela_path.exists() else ""
     logo = base64.b64encode((ROOT / "corinthians-logo.svg").read_bytes()).decode("ascii")
+    artilharia_path = ROOT / "artilharia_corinthians.csv"
+    artilharia_text = artilharia_path.read_text(encoding="utf-8-sig") if artilharia_path.exists() else ""
 
     html = html.replace(
         '<link rel="stylesheet" href="styles.css">',
@@ -50,6 +52,7 @@ def build_dashboard() -> str:
         window.__CORINTHIANS_CSV__ = {embed(csv_text)};
         window.__CORINTHIANS_DEMO_CSV__ = {embed(demo_text)};
                 window.__TABELA_CSV__ = {embed(tabela_text)};
+                window.__ARTILHARIA_CSV__ = {embed(artilharia_text)};
       </script>
       <script>{javascript}</script>
       <script>

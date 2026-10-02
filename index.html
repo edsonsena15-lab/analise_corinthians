@@ -18,6 +18,7 @@
       <nav aria-label="Seções do painel">
         <a href="#campanha">Campanha</a>
         <a href="#classificacao">Tabela</a>
+        <a href="#jogadores">Jogadores</a>  
         <a href="#probabilidades">Probabilidades</a>
         <a href="#evolucao">Evolução</a>
         <a href="#jogos">Jogos</a>
@@ -93,8 +94,7 @@
         </article>
       </section>
 
-      <section class="probability-section" id="probabilidades">
-              <section class="standings-section" id="classificacao" hidden>
+            <section class="standings-section" id="classificacao" hidden>
         <div class="probability-head">
           <div>
             <p class="section-kicker">CLASSIFICAÇÃO</p>
@@ -129,6 +129,43 @@
           </table>
         </div>
       </section>
+          <section class="standings-section" id="jogadores" hidden>
+        <div class="probability-head">
+          <div>
+            <p class="section-kicker">JOGADORES</p>
+            <h2>Quem decide</h2>
+          </div>
+          <p id="playersNote">--</p>
+        </div>
+        <div class="standings-cards">
+          <article class="standings-card">
+            <span>Artilheiro</span>
+            <strong id="topScorer">--</strong>
+            <p id="topScorerDetail">--</p>
+          </article>
+          <article class="standings-card">
+            <span>Líder em assistências</span>
+            <strong id="topAssist">--</strong>
+            <p id="topAssistDetail">--</p>
+          </article>
+          <article class="standings-card">
+            <span>Gols cobertos pela lista</span>
+            <strong id="goalsCoverage">--</strong>
+            <p id="goalsCoverageDetail">--</p>
+          </article>
+        </div>
+        <div class="standings-table-wrap">
+          <table class="standings-table players-table">
+            <thead>
+              <tr><th>Jogador</th><th>Jogos</th><th>Gols</th><th>Assist.</th><th>Participações</th></tr>
+            </thead>
+            <tbody id="playersRows"></tbody>
+          </table>
+        </div>
+        <p class="players-footnote">Na barra de participações, preto = gols e dourado = assistências. Desarmes e passes por jogador não estão disponíveis na fonte gratuita (football-data.org).</p>
+      </section>
+      <section class="probability-section" id="probabilidades">
+          ction>
         <div class="probability-head">
           <div>
             <p class="section-kicker">MODELO DE CENÁRIOS</p>
