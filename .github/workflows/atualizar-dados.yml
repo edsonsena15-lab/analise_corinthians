@@ -36,6 +36,7 @@ jobs:
         run: |
           python coleta_football_data.py
           python coleta_tabela.py
+          python coleta_artilharia.py
 
       - name: Conferir se a base tem jogos
         run: |
@@ -48,7 +49,7 @@ jobs:
 
       - name: Publicar a base atualizada
         run: |
-          if git diff --quiet -- corinthians_serie_a_2026_todos_jogos.csv tabela_serie_a.csv; then
+          if git diff --quiet -- corinthians_serie_a_2026_todos_jogos.csv tabela_serie_a.csv; artilharia_corinthians.csv; then
             echo "Nenhuma novidade. Nada a publicar."
             exit 0
           fi
@@ -56,4 +57,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add corinthians_serie_a_2026_todos_jogos.csv tabela_serie_a.csv
           git commit -m "Atualiza dados do Corinthians ($(date -u +'%Y-%m-%d'))"
+          git artilharia_corinthians.csv
           git push
