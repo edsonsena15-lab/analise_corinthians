@@ -1,21 +1,21 @@
 posicao,time_id,time,escudo,jogos,pontos,vitorias,empates,derrotas,saldo_gols,gols_pro,gols_contra,forma,atualizado_em
-1,1783,Flamengo,https://crests.football-data.org/1783.png,28,60,18,6,4,32,55,23,"W,W,W,W,W",2026-10-05
-2,1769,Palmeiras,https://crests.football-data.org/1769.png,28,57,16,9,3,26,47,21,"D,W,D,D,W",2026-10-05
-3,1768,Paranaense,https://crests.football-data.org/1768.png,28,49,14,7,7,11,43,32,"W,D,L,D,W",2026-10-05
-4,1765,Fluminense,https://crests.football-data.org/1765.png,28,48,13,9,6,8,44,36,"W,L,W,D,W",2026-10-05
-5,1777,Bahia,https://crests.football-data.org/1777.png,28,46,12,10,6,8,43,35,"L,W,W,W,W",2026-10-05
-6,1771,Cruzeiro,https://crests.football-data.org/1771.png,28,45,13,6,9,2,42,40,"W,L,W,L,W",2026-10-05
-7,1766,Mineiro,https://crests.football-data.org/1766.png,28,43,12,7,9,5,37,32,"W,D,W,L,W",2026-10-05
-8,6685,Santos,https://crests.football-data.org/6685.png,28,41,11,8,9,2,43,41,"W,W,W,W,W",2026-10-05
-9,4241,Coritiba,https://crests.football-data.org/4241.png,28,38,10,8,10,-6,37,43,"L,D,L,W,W",2026-10-05
-10,4286,Bragantino,https://crests.football-data.org/4286.png,28,36,10,6,12,1,33,32,"L,L,D,L,L",2026-10-05
-11,1776,São Paulo,https://crests.football-data.org/1776.png,28,36,10,6,12,1,33,32,"L,W,L,W,W",2026-10-05
-12,1770,Botafogo,https://crests.football-data.org/1770.png,28,35,9,8,11,-4,41,45,"L,W,D,D,L",2026-10-05
-13,1782,Vitória,https://crests.football-data.org/1782.png,28,33,9,6,13,-14,28,42,"L,D,W,L,L",2026-10-05
-14,1779,Corinthians,https://crests.football-data.org/1779.png,28,32,8,8,12,-3,29,32,"L,L,L,L,L",2026-10-05
-15,4364,Mirassol,https://crests.football-data.org/4364.png,28,32,8,8,12,-9,33,42,"W,D,W,L,D",2026-10-05
-16,1780,Vasco da Gama,https://crests.football-data.org/1780.png,27,31,8,7,12,-7,34,41,"W,W,L,W,L",2026-10-05
-17,1767,Grêmio,https://crests.football-data.org/1767.png,28,29,7,8,13,-8,30,38,"D,L,L,L,W",2026-10-05
-18,6684,Internacional,https://crests.football-data.org/6684.png,28,28,6,10,12,-6,30,36,"L,W,L,L,D",2026-10-05
-19,4287,Clube do Remo,https://crests.football-data.org/4287.png,28,23,5,8,15,-15,32,47,"L,L,L,L,L",2026-10-05
-20,1772,Chapecoense,https://crests.football-data.org/1772_large.png,27,18,3,9,15,-24,29,53,"D,L,W,L,W",2026-10-05
+1,1783,Flamengo,https://crests.football-data.org/1783.png,28,60,18,6,4,32,55,23,"W,W,W,W,W",2026-10-06
+2,1769,Palmeiras,https://crests.football-data.org/1769.png,28,57,16,9,3,26,47,21,"D,W,D,D,W",2026-10-06
+3,1768,Paranaense,https://crests.football-data.org/1768.png,28,49,14,7,7,11,43,32,"W,D,L,D,W",2026-10-06
+4,1765,Fluminense,https://crests.football-data.org/1765.png,28,48,13,9,6,8,44,36,"W,L,W,D,W",2026-10-06
+5,1777,Bahia,https://crests.football-data.org/1777.png,28,46,12,10,6,8,43,35,"L,W,W,W,W",2026-10-06
+6,1771,Cruzeiro,https://crests.football-data.org/1771.png,28,45,13,6,9,2,42,40,"W,L,W,L,W",2026-10-06
+7,1766,Mineiro,https://crests.football-data.org/1766.png,28,43,12,7,9,5,37,32,"W,D,W,L,W",2026-10-06
+8,6685,Santos,https://crests.football-data.org/6685.png,28,41,11,8,9,2,43,41,"W,W,W,W,W",2026-10-06
+9,4241,Coritiba,https://crests.football-data.org/4241.png,28,38,10,8,10,-6,37,43,"L,D,L,W,W",2026-10-06
+10,4286,Bragantino,https://crests.football-data.org/4286.png,28,36,10,6,12,1,33,32,"L,L,D,L,L",2026-10-06
+11,1776,São Paulo,https://crests.football-data.org/1776.png,28,36,10,6,12,1,33,32,"L,W,L,W,W",2026-10-06
+12,1770,Botafogo,https://crests.football-data.org/1770.png,28,35,9,8,11,-4,41,45,"L,W,D,D,L",2026-10-06
+13,1782,Vitória,https://crests.football-data.org/1782.png,28,33,9,6,13,-14,28,42,"L,D,W,L,L",2026-10-06
+14,1779,Corinthians,https://crests.football-data.org/1779.png,28,32,8,8,12,-3,29,32,"L,L,L,L,L",2026-10-06
+15,4364,Mirassol,https://crests.football-data.org/4364.png,28,32,8,8,12,-9,33,42,"W,D,W,L,D",2026-10-06
+16,1780,Vasco da Gama,https://crests.football-data.org/1780.png,27,31,8,7,12,-7,34,41,"W,W,L,W,L",2026-10-06
+17,1767,Grêmio,https://crests.football-data.org/1767.png,28,29,7,8,13,-8,30,38,"D,L,L,L,W",2026-10-06
+18,6684,Internacional,https://crests.football-data.org/6684.png,28,28,6,10,12,-6,30,36,"L,W,L,L,D",2026-10-06
+19,4287,Clube do Remo,https://crests.football-data.org/4287.png,28,23,5,8,15,-15,32,47,"L,L,L,L,L",2026-10-06
+20,1772,Chapecoense,https://crests.football-data.org/1772_large.png,27,18,3,9,15,-24,29,53,"D,L,W,L,W",2026-10-06
