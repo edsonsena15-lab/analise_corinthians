@@ -584,7 +584,7 @@ function renderStandings() {
 
   $('standingsUpdated').textContent = `Classificação oficial da Série A, atualizada em ${formatDate(me.updated)}.`;
   $('standingsPosition').textContent = `${me.pos}º`;
-  $('standingsPositionDetail').textContent = `${me.pts} pontos em ${me.games} jogos · saldo ${me.gd > 0 ? '+' : ''}${me.gd}`;
+  $('standingsPositionDetail').textContent = `${me.pts} pontos em ${me.games} jogos · saldo ${me.gd > 0 ? '+' : ''}${me.gd} · critérios: pts, V, SG, GP`;
 
   if (me.pos < Z4_START) {
     const gap = me.pts - z4.pts;

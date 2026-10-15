@@ -59,7 +59,16 @@ def main():
     hoje = date.today().isoformat()
     tabela = buscar_classificacao()
     linhas = [montar_linha(item, hoje) for item in tabela]
-
+    # Reordenar pelos critérios do Brasileirão: pontos → vitórias → saldo → gols pró
+    linhas.sort(key=lambda t: (
+        -int(t["pontos"]),
+        -int(t["vitorias"]),
+        -int(t["saldo_gols"]),
+        -int(t["gols_pro"]),
+    ))
+    for posicao, linha in enumerate(linhas, start=1):
+        linha["posicao"] = posicao
+        
     with open(ARQUIVO, "w", newline="", encoding="utf-8") as arquivo:
         escritor = csv.DictWriter(arquivo, fieldnames=COLUNAS)
         escritor.writeheader()
